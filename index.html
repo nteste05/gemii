@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="canonical" href="https://nteste05.github.io/gemii/" />
+    <link rel="icon" type="image/jpg" href="gemii-favicon.jpg" sizes="32x32">
+    <link rel="apple-touch-icon" sizes="180x180" href="gemii-favicon.jpg">
+    <link href="https://googleapis.com" rel="stylesheet">
+    <link rel="manifest" href="manifest.json">
+    
+    <title>Gemii: Portal Game Permainan Online Gratis Terlengkap & Tanpa Download!</title>
+    <meta name="description" content="Mainkan ribuan game online gratis di Gemii! Game aksi, teka-teki, balapan, hingga edukasi tanpa perlu download. Seru, aman, dan lancar di HP & PC.">
+    <meta name="keywords" content="game online gratis, main game tanpa download, portal game gratis, game browser terbaik, Gemii game, game edukasi anak, game permainan ringan">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="Gemii">
+    
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://nteste05.github.io/gemii">
+    <meta property="og:title" content="Gemii: Portal Game Permainan Online Gratis Terlengkap & Tanpa Download!">
+    <meta property="og:description" content="Mainkan ribuan game online gratis di Gemii! Game aksi, teka-teki, balapan, hingga edukasi tanpa perlu download. Seru, aman, dan lancar di HP & PC.">
+    <meta property="og:image" content="https://raw.githubusercontent.com/nteste05/gemii/refs/heads/main/gemii-thumb.jpg">
+    
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://nteste05.github.io/gemii">
+    <meta property="twitter:title" content="Gemii: Portal Game Permainan Online Gratis Terlengkap & Tanpa Download!">
+    <meta property="twitter:description" content="Mainkan ribuan game online gratis di Gemii! Game aksi, teka-teki, balapan, hingga edukasi tanpa perlu download. Seru, aman, dan lancar di HP & PC.">
+    <meta property="twitter:image" content="https://raw.githubusercontent.com/nteste05/gemii/refs/heads/main/gemii-thumb.jpg">
+    <style>
+        /* Base Style */
+        :root {
+            --primary: #d32f2f;
+            --bg-dark: #0f0f0f;
+            --card-bg: #1e1e1e;
+            --text-main: #ffffff;
+            --text-muted: #b3b3b3;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background-color: var(--bg-dark); color: var(--text-main); line-height: 1.6; }
+
+        /* Header */
+        header { background: #000; padding: 15px 5%; display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid var(--primary); position: sticky; top: 0; z-index: 1000; }
+        .logo { font-size: 1.8rem; font-weight: 800; color: var(--text-main); letter-spacing: 1px; }
+
+        /* Carousel */
+        .slider-container { width: 100%; overflow: hidden; position: relative; aspect-ratio: 16/6; }
+        .slider { display: flex; width: 300%; height: 100%; animation: slide 12s infinite; }
+        .slide { width: 100.33%; position: relative; }
+        .slide img { width: 100%; height: 100%; object-fit: cover; }
+        
+        @keyframes slide {
+            0% { transform: translateX(0); }
+            30% { transform: translateX(0); }
+            33% { transform: translateX(-33.33%); }
+            63% { transform: translateX(-33.33%); }
+            66% { transform: translateX(-66.66%); }
+            96% { transform: translateX(-66.66%); }
+            100% { transform: translateX(0); }
+        }
+
+        /* Game Grid Section */
+        .main-content { padding: 30px 5%; }
+        .section-title { margin-bottom: 20px; font-size: 1.5rem; border-left: 4px solid var(--primary); padding-left: 15px; }
+        
+        .game-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); 
+            gap: 20px; 
+        }
+
+        .game-card { 
+            background: var(--card-bg); 
+            padding: 10px; 
+            border-radius: 12px; 
+            text-align: center; 
+            transition: 0.3s; 
+            border: 1px solid transparent;
+            cursor: pointer;
+        }
+        
+        .game-card a {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+        .game-card:hover { transform: translateY(-5px); border-color: var(--primary); }
+        
+        .game-icon { 
+            width: 100%; 
+            aspect-ratio: 1/1; 
+            border-radius: 10px; 
+            background: #333; 
+            margin-bottom: 10px;
+            object-fit: cover;
+        }
+
+        .game-card p { font-size: 0.85rem; font-weight: 600; color: var(--text-main); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+        /* Description Section */
+        .desc-section { padding: 40px 5%; background: #151515; margin-top: 40px; }
+        .desc-section h1 { font-size: 1.8rem; color: var(--primary); margin-bottom: 15px; }
+        .desc-section p { color: var(--text-muted); font-size: 1rem; margin-bottom: 15px; text-align: justify; }
+
+        /* Footer */
+        footer { background: #000; color: #555; text-align: center; padding: 20px; font-size: 0.9rem; border-top: 1px solid #222; }
+
+        /* Mobile Adjustments */
+        @media (max-width: 768px) {
+            .slider-container { aspect-ratio: 16/9; }
+            .game-grid { grid-template-columns: repeat(auto-fill, minmax(85px, 1fr)); gap: 10px; }
+            .desc-section h1 { font-size: 1.4rem; }
+        }
+        
+        .visually-hidden {
+            position: absolute !important;
+            width: 1px !important;
+            height: 1px !important;
+            padding: 0 !important;
+            margin: -1px !important;
+            overflow: hidden !important;
+            clip: rect(0, 0, 0, 0) !important;
+            white-space: nowrap !important;
+            border: 0 !important;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="logo">Gemii</div>
+        <nav style="font-size: 1.2rem;">☰</nav>
+    </header>
+
+    <!-- Carousel -->
+    <div class="slider-container">
+        <div class="slider">
+            <div class="slide"><img src="https://raw.githubusercontent.com/nteste05/PuzzleKotak/refs/heads/main/puzzlekotak-thumb.jpg" alt="PuzzleKotak"></div>
+            <div class="slide"><img src="https://raw.githubusercontent.com/nteste05/Monopoli/refs/heads/main/mrungkad-thumb.jpg" alt="Monopoli Rungkad"></div>
+            <div class="slide"><img src="https://raw.githubusercontent.com/nteste05/PuzzleKotak/refs/heads/main/puzzlekotak-thumb.jpg" alt="PuzzleKotak"></div>
+        </div>
+    </div>
+
+    <!-- Game Grid -->
+    <main class="main-content">
+        <h2 class="section-title">Game Terpopuler</h2>
+        <div class="game-grid">
+            <!-- Game Item -->
+            <div class="game-card">
+                <a href="https://nteste05.github.io/PuzzleKotak/" style="text-decoration: none; color: inherit; display: block;">
+                    <img src="https://raw.githubusercontent.com/nteste05/PuzzleKotak/refs/heads/main/puzzlekotak-favicon.jpg" alt="PuzzleKotak" class="game-icon">
+                    <p>PuzzleKotak</p>
+                </a>
+            </div>
+            <div class="game-card">
+                <a href="https://nteste05.github.io/Monopoli/" style="text-decoration: none; color: inherit; display: block;">
+                    <img src="https://raw.githubusercontent.com/nteste05/Monopoli/refs/heads/main/mrungkad-favicon.jpg" alt="Monopoli Rungkad" class="game-icon">
+                    <p>Monopoli Rungkad</p>
+                </a>
+            </div>
+            <div class="game-card">
+                <a href="https://nteste05.github.io/PuzzleKotak/" style="text-decoration: none; color: inherit; display: block;">
+                    <img src="https://raw.githubusercontent.com/nteste05/PuzzleKotak/refs/heads/main/puzzlekotak-favicon.jpg" alt="PuzzleKotak" class="game-icon">
+                    <p>PuzzleKotak</p>
+                </a>
+            </div>
+            <div class="game-card">
+                <a href="https://nteste05.github.io/Monopoli/" style="text-decoration: none; color: inherit; display: block;">
+                    <img src="https://raw.githubusercontent.com/nteste05/Monopoli/refs/heads/main/mrungkad-favicon.jpg" alt="Monopoli Rungkad" class="game-icon">
+                    <p>Monopoli Rungkad</p>
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <!-- Description -->
+    <section class="desc-section">
+        <h1>Portal Game Permainan Online Terbaik dan Terpercaya</h1>
+        <p>
+            Selamat datang di <strong>Gemii</strong>, platform terpercaya bagi para gamer untuk menemukan koleksi game terbaik. Kami menyediakan layanan akses cepat untuk ribuan judul game populer baik di perangkat Android, iOS, maupun PC.
+        </p>
+        <p>
+            Kenapa harus di Gemii? Kami mengoptimalkan pengalaman bermain Anda dengan antarmuka yang ringan dan responsif. Dapatkan informasi terbaru mengenai update game, tips gaming, hingga info lain setiap harinya. Kami berkomitmen memberikan konten berkualitas tinggi bagi komunitas gamers lokal di Indonesia.
+        </p>
+        <p class="visually-hidden">Selamat datang di<strong>Gemii</strong>, destinasi utama bagi para pencinta hiburan digital yang mencari pengalaman bermain game online gratis tanpa batas. Di era modern ini, kebutuhan akan hiburan yang praktis, cepat, dan berkualitas menjadi prioritas, dan Gemii hadir untuk menjawab tantangan tersebut dengan menyajikan ribuan judul permainan yang dapat diakses langsung melalui peramban (browser) Anda.</p>
+        <p class="visually-hidden">Gemii bukan sekadar portal game biasa. Kami adalah sebuah ekosistem digital yang dirancang khusus untuk menyatukan pemain dari berbagai kalangan—mulai dari anak-anak, remaja, hingga dewasa—dalam satu platform yang aman dan interaktif.</p>
+        <p class="visually-hidden">Nama "Gemii" diambil dari filosofi kegembiraan dan kemudahan, di mana setiap klik yang Anda lakukan adalah gerbang menuju petualangan baru yang mendebarkan. Kami memahami bahwa waktu Anda berharga, itulah sebabnya Gemii mengeliminasi proses pengunduhan yang lama atau instalasi yang rumit. Cukup buka situs kami, pilih game favorit Anda, dan mainkan saat itu juga.</p>
+        <p class="visually-hidden">Di Gemii, kami bangga dengan keragaman konten yang kami miliki. Perpustakaan <strong>game Permainan Online kami</strong> terus diperbarui setiap hari untuk memastikan Anda tidak akan pernah merasa bosan. Kami menyediakan berbagai genre populer, di antaranya:
+• Aksi dan Petualangan: Uji adrenalin Anda dengan misi-misi menantang dan eksplorasi dunia fantasi.
+• Strategi dan Teka-Teki: Asah otak Anda dengan permainan yang menuntut logika dan perencanaan matang.
+• Olahraga dan Balapan: Rasakan kecepatan simulasi balap mobil atau kompetisi olahraga yang kompetitif.
+• Game Edukasi: Pilihan tepat bagi orang tua yang ingin memberikan hiburan sambil belajar bagi buah hati mereka.</p>
+        <p class="visually-hidden">Keunggulan utama dari <strong>Gemii Game</strong> adalah kemampuannya untuk dijalankan pada spesifikasi perangkat yang beragam. Pengguna tidak memerlukan perangkat keras kelas atas untuk menikmati grafis yang memukau dan gameplay yang responsif. Dengan dukungan teknologi HTML5, Gemii memastikan bahwa transisi antara bermain di desktop saat di rumah dan bermain di ponsel saat bepergian berjalan dengan sangat mulus.</p>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 <a style="color: inherit; text-decoration: none;" href="https://nteste05.github.io/gemii/">Gemii Portal Game Permainan terbaik Indonesia.</a> All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>
