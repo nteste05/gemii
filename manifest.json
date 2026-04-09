@@ -1,0 +1,11 @@
+{
+    "name": "Gemii Portal Game Online",
+    "short_name": "Gemii",
+    "description": "Mainkan ribuan game online gratis di Gemii! Game aksi, teka-teki, balapan, hingga edukasi tanpa perlu download. Seru, aman, dan lancar di HP & PC.",
+    "icons": "gemii-favicon.jpg",
+    "theme_color": "#2D2D2D",
+    "background_color": "#2D2D2D",
+    "display": "standalone",
+    "start_url": "./index.html",
+    "orientation": "portrait"
+}
