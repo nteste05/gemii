@@ -115,6 +115,68 @@
             .desc-section h1 { font-size: 1.4rem; }
         }
         
+        /* Pagination Styling */
+    .pagination-wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap; /* Agar tombol turun ke bawah jika layar terlalu sempit */
+        gap: 5px;
+        margin-top: 20px;
+    }
+
+    .page-btn {
+        min-width: 10px;
+        height: 10px;
+        padding: 0;
+        color: var(--text-main);
+        cursor: pointer;
+        font-size: 16px;
+        font-weight: 700;
+        transition: all 0.2s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: none;
+        background: var(--card-bg);
+    }
+
+    /* Efek Hover */
+    .page-btn:hover:not(.active):not(:disabled) {
+        color: #bbb;
+        border: none;
+        background: #1a1a1a;
+    }
+
+    /* Halaman Aktif */
+    .page-btn.active {
+        color: var(--primary);
+        border: none;
+        background: var(--card-bg);
+    }
+
+    /* Tombol Mati (Disabled) */
+    .page-btn:disabled {
+        color: #ccc;
+        cursor: not-allowed;
+        transform: none;
+        border: none;
+        background: #1a1a1a;
+    }
+
+    /* Khusus Tombol Prev/Next agar lebih lebar sedikit */
+    .nav-btn {
+        padding: 0 10px;
+    }
+
+    @media (max-width: 480px) {
+        .page-btn {
+            min-width: 35px;
+            height: 35px;
+            font-size: 12px;
+        }
+    }
+        
         .visually-hidden {
             position: absolute !important;
             width: 1px !important;
@@ -193,6 +255,7 @@
                 </a>
             </div>
         </div>
+        <div id="pagination-container" class="pagination-wrapper"></div>
     </main>
 
     <!-- Description -->
@@ -220,5 +283,74 @@
         <p>&copy; 2026 <a style="color: inherit; text-decoration: none;" href="https://nteste05.github.io/gemii/">Gemii Portal Game Permainan terbaik Indonesia.</a> All Rights Reserved.</p>
     </footer>
 
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    const cardsPerPage = 6; // Batas 6 kartu per halaman
+    const cards = Array.from(document.querySelectorAll('.game-card'));
+    const container = document.getElementById('pagination-container');
+    const totalPages = Math.ceil(cards.length / cardsPerPage);
+    let currentPage = 1;
+
+    // Jika kartu kurang dari atau sama dengan 6, sembunyikan pagination
+    if (cards.length <= cardsPerPage) {
+        container.style.display = 'none';
+        return;
+    }
+
+    function renderPagination() {
+        container.innerHTML = '';
+
+        // Tombol PREV
+        const prevBtn = document.createElement('button');
+        prevBtn.innerHTML = '&#10094; Prev'; // Simbol <
+        prevBtn.className = 'page-btn nav-btn';
+        prevBtn.disabled = currentPage === 1;
+        prevBtn.onclick = () => goToPage(currentPage - 1);
+        container.appendChild(prevBtn);
+
+        // Tombol ANGKA
+        for (let i = 1; i <= totalPages; i++) {
+            const pageBtn = document.createElement('button');
+            pageBtn.innerText = i;
+            pageBtn.className = i === currentPage ? 'page-btn active' : 'page-btn';
+            pageBtn.onclick = () => goToPage(i);
+            container.appendChild(pageBtn);
+        }
+
+        // Tombol NEXT
+        const nextBtn = document.createElement('button');
+        nextBtn.innerHTML = 'Next &#10095;'; // Simbol >
+        nextBtn.className = 'page-btn nav-btn';
+        nextBtn.disabled = currentPage === totalPages;
+        nextBtn.onclick = () => goToPage(currentPage + 1);
+        container.appendChild(nextBtn);
+    }
+
+    function goToPage(page) {
+        currentPage = page;
+        const start = (page - 1) * cardsPerPage;
+        const end = start + cardsPerPage;
+
+        // Tampilkan/Sembunyikan kartu dengan transisi halus
+        cards.forEach((card, index) => {
+            if (index >= start && index < end) {
+                card.style.display = 'block';
+                // Sedikit delay agar terasa smooth
+                setTimeout(() => card.style.opacity = '1', 10);
+            } else {
+                card.style.display = 'none';
+                card.style.opacity = '0';
+            }
+        });
+
+        renderPagination();
+
+        
+    }
+
+    // Jalankan pertama kali
+    goToPage(1);
+});
+</script>
 </body>
 </html>
